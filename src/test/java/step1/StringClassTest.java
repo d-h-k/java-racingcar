@@ -3,10 +3,11 @@ package step1;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
 import java.util.logging.Logger;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -55,11 +56,17 @@ public class StringClassTest {
 
     @DisplayName("요구사항 3 - \"abc\" 값이 주어졌을 때 String의 charAt() 메소드를 활용해 특정 위치의 문자를 가져오는 학습 테스트를 구현한다.")
     @Test
-    public void run2342() {
+    public void learnCharAt() {
         //given
-        String preset = "";
+        String preset = "abc";
+
         //when
+        Map<Integer, Character> charIndexMap = Map.of(0, preset.charAt(0), 1, preset.charAt(1), 2, preset.charAt(2));
+
         //then
+        assertEquals(charIndexMap.get(0), 'a');
+        assertEquals(charIndexMap.get(1), 'b');
+        assertEquals(charIndexMap.get(2), 'c');
     }
 
 
@@ -67,9 +74,26 @@ public class StringClassTest {
     @Test
     public void run2324() {
         //given
-        String preset = "";
+        String preset = "123";
         //when
         //then
+        assertThatExceptionOfType(IndexOutOfBoundsException.class)
+                .isThrownBy(() -> {
+                    preset.charAt(4);
+                }).withMessageMatching("String index out of range: 4");
+    }
+
+    @DisplayName("요구사항 3 - String의 charAt() 메소드를 활용해 특정 위치의 문자를 가져올 때 위치 값을 벗어나면 StringIndexOutOfBoundsException이 발생하는 부분에 대한 학습 테스트를 구현한다.")
+    @Test
+    public void run23234() {
+        //given
+        String preset = "123";
+        //when
+        //then
+        assertThatThrownBy(() -> {
+            preset.charAt(4);
+        }).isInstanceOf(IndexOutOfBoundsException.class)
+                .hasMessageContaining("String index out of range: 4");
     }
 
 
