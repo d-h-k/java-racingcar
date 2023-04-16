@@ -3,7 +3,7 @@ package step3.model;
 import java.util.function.UnaryOperator;
 
 public class Car {
-    private static final UnaryOperator<String> validateName = name -> {
+    private static final UnaryOperator<String> VALIDATE_NAME = name -> {
         if (name.length() <= 5) {
             return name;
         }
@@ -12,7 +12,7 @@ public class Car {
     private final String name;
 
     public Car(String name) {
-        this.name = validateName.apply(name);
+        this.name = VALIDATE_NAME.apply(name);
     }
 
     public String getName() {
