@@ -14,12 +14,16 @@ public class Racer {
     private Boolean isWinner = null;
 
     public Racer(int iterations, Car car) {
-        if (iterations < 0) {
-            throw new RuntimeException("iterations 는 1 이상이어야 합니다");
-        }
+        validateIterations(iterations);
         this.scores = doRace(iterations);
         this.results = calculateResults(scores.getScoreList());
         this.car = car;
+    }
+
+    private void validateIterations(int iterations) {
+        if (iterations < 0) {
+            throw new RuntimeException("iterations 는 1 이상이어야 합니다");
+        }
     }
 
     private Score doRace(int iterations) {
