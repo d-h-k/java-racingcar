@@ -30,7 +30,12 @@ public class RacerTest {
         //then
         assertThatThrownBy(() -> {
             Racer racer = new Racer(iterations, new Car("hello"));
+<<<<<<< HEAD
         }).isInstanceOf(RuntimeException.class);
+=======
+        }).isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("iterations 는 1 이상이어야 합니다");
+>>>>>>> b8d8ece5fd2708917f8a34289618a29482ed2856
     }
 
     @DisplayName("경기결과에 따른 진행상황이 정확히 표시된다")

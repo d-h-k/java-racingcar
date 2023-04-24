@@ -9,7 +9,11 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 public class CarTest {
 
 
+<<<<<<< HEAD
     @DisplayName("자동차 이름 AB-TEST : 5자를 초과할수 없다")
+=======
+    @DisplayName("자동차 이름은 5자를 초과할수 없다")
+>>>>>>> b8d8ece5fd2708917f8a34289618a29482ed2856
     @Test
     public void carNameOver5() {
         //given
@@ -18,6 +22,7 @@ public class CarTest {
         //then
         assertThatThrownBy(() -> {
             new Car(input);
+<<<<<<< HEAD
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -29,6 +34,10 @@ public class CarTest {
         //when
         //then
         new Car(input);
+=======
+        }).isInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining("자동차 이름은 5자를 초과할수 없다");
+>>>>>>> b8d8ece5fd2708917f8a34289618a29482ed2856
     }
 
     @DisplayName("자동차에 이름을 부여할 수 있다")

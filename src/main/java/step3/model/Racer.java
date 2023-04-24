@@ -13,12 +13,25 @@ public class Racer {
     private final Car car;
 
     public Racer(int iterations, Car car) {
+<<<<<<< HEAD
         if (iterations < 0) {
             throw new RuntimeException("iterations 는 1 이상이어야 합니다");
         }
         this.scores = doRace(iterations);
         this.results = calculateResults(scores.getScoreList());
         this.car = car;
+=======
+        validateIterations(iterations);
+        this.scores = doRace(iterations);
+        this.results = calculateResults(scores.getScoreList());
+        this.car = car;
+    }
+
+    private void validateIterations(int iterations) {
+        if (iterations < 0) {
+            throw new RuntimeException("iterations 는 1 이상이어야 합니다");
+        }
+>>>>>>> b8d8ece5fd2708917f8a34289618a29482ed2856
     }
 
     private Score doRace(int iterations) {
@@ -39,13 +52,13 @@ public class Racer {
     }
 
     private String calculateResult(int roundCount, List<Integer> scoreList) {
-        int position = 0;
-        for (int roundIndex = 0; roundIndex <= roundCount; roundIndex++) {
-            if (moveForward(scoreList.get(roundIndex))) {
-                position++;
-            }
-        }
-        return lengthToString(position);
+        return  "-".repeat( getPos(roundCount, scoreList));
+    }
+
+    private int getPos(int roundCount, List<Integer> scoreList) {
+        return (int) scoreList.stream()
+            .limit(roundCount + 1)
+            .filter(this::moveForward).count();
     }
 
     private boolean moveForward(int score) {
@@ -65,10 +78,26 @@ public class Racer {
     }
 
     public Integer getFinalPosition() {
+<<<<<<< HEAD
         return results.getPositionList().get(results.getPositionList().size() - 1).length();
+=======
+        return finalRecord().length();
+    }
+
+    private String finalRecord() {
+        return results.getPositionList()
+            .get(results.getPositionList().size() - 1);
+>>>>>>> b8d8ece5fd2708917f8a34289618a29482ed2856
     }
 
     public Car getCar() {
         return this.car;
     }
+<<<<<<< HEAD
+=======
+
+    public boolean isSamePosition(int position) {
+        return position == getFinalPosition();
+    }
+>>>>>>> b8d8ece5fd2708917f8a34289618a29482ed2856
 }

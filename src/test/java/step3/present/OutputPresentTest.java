@@ -64,7 +64,11 @@ public class OutputPresentTest {
         assertThat(outputStream.toString().trim()).isEqualTo(answer);
     }
 
+<<<<<<< HEAD
     @DisplayName("우승출력 AB-TEST : 누가 우승했는지를 알려준다. 여러명일수 있다")
+=======
+    @DisplayName("우승출력 TEST : 여러명이 우승했을때는 우승한 여러명 모두를 출력한다")
+>>>>>>> b8d8ece5fd2708917f8a34289618a29482ed2856
     @Test
     public void multiWinner() {
         //given
@@ -76,7 +80,11 @@ public class OutputPresentTest {
         assertThat(outputStream.toString().trim()).isEqualTo(answer);
     }
 
+<<<<<<< HEAD
     @DisplayName("우승출력 AB-TEST : 우승했는지를 알려준다")
+=======
+    @DisplayName("우승출력 TEST : 단독우승시 한명만 출력된다")
+>>>>>>> b8d8ece5fd2708917f8a34289618a29482ed2856
     @Test
     public void winnerDisplay() {
         //given
