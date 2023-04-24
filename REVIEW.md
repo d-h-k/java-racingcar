@@ -5,8 +5,8 @@
 - step1 : https://github.com/next-step/java-racingcar/pull/4253
 - step2 : https://github.com/next-step/java-racingcar/pull/4284
 - step3 : https://github.com/next-step/java-racingcar/pull/4323
-- step4 : 
-- step5 : undefined
+- step4 : https://github.com/next-step/java-racingcar/pull/4495
+- step5 : https://github.com/next-step/java-racingcar/pull/4633
 
 
 ## 느낀점
